@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Monitoring System</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <style>
+        .landing-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .landing-content {
+            background: white;
+            border-radius: 16px;
+            padding: 50px 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .landing-content h1 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: #667eea;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .landing-content p {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+        
+        .features {
+            text-align: left;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .features h3 {
+            color: #667eea;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .features li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #555;
+        }
+        
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        
+        .cta-button {
+            margin-top: 30px;
+        }
+        
+        .btn-large {
+            padding: 18px 40px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="landing-page">
+        <div class="landing-content">
+            <h1>Screen Monitoring System</h1>
+            <p>Monitor mobile device screens in real-time through a simple, shareable link. Perfect for remote support, presentations, and device monitoring.</p>
+            
+            <div class="features">
+                <h3>Key Features</h3>
+                <ul>
+                    <li>Real-time screen streaming via WebRTC</li>
+                    <li>Generate unique shareable links</li>
+                    <li>Peer-to-peer communication</li>
+                    <li>Responsive web interface</li>
+                    <li>Easy to use on any device</li>
+                </ul>
+            </div>
+            
+            <div class="cta-button">
+                <a href="/dashboard" class="btn btn-primary btn-large">Go to Dashboard</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
