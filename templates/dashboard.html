@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Monitoring Dashboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Screen Monitoring Dashboard</h1>
+            <p class="subtitle">Monitor mobile screens in real-time</p>
+        </header>
+
+        <div class="dashboard-content">
+            <!-- Session Creation Section -->
+            <div class="session-section">
+                <h2>Create New Session</h2>
+                <button id="createSessionBtn" class="btn btn-primary">Create Link</button>
+                <div id="sessionInfo" class="session-info hidden">
+                    <div class="link-container">
+                        <label>Shareable Link:</label>
+                        <div class="link-display">
+                            <input type="text" id="sessionLink" readonly>
+                            <button id="copyLinkBtn" class="btn btn-secondary">Copy</button>
+                        </div>
+                    </div>
+                    <div class="session-status">
+                        <p>Session ID: <span id="sessionId"></span></p>
+                        <p>Status: <span id="sessionStatus">Pending</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video Display Section -->
+            <div class="video-section">
+                <h2>Live Stream</h2>
+                <div class="video-container">
+                    <video id="remoteVideo" autoplay playsinline></video>
+                    <div id="noStreamMessage" class="no-stream-message">
+                        <p>Waiting for mobile connection...</p>
+                        <p class="hint">Open the shareable link on a mobile device to start streaming</p>
+                    </div>
+                </div>
+                <div class="connection-status">
+                    <p id="connectionStatus">Not connected</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

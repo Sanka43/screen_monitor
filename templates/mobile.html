@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen Share - Mobile</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="mobile-page">
+    <div class="mobile-container">
+        <header class="mobile-header">
+            <h1>Screen Share</h1>
+            <p class="session-id">Session: {{ session_id }}</p>
+        </header>
+
+        <div class="mobile-content">
+            <div id="permissionPrompt" class="permission-prompt">
+                <h2>Start Screen Sharing</h2>
+                <p>Click the button below to start sharing your screen with the monitoring dashboard.</p>
+                <button id="startSharingBtn" class="btn btn-primary btn-large">Start Sharing</button>
+                <p class="hint">You'll be asked to grant screen capture permission</p>
+            </div>
+
+            <div id="sharingActive" class="sharing-active hidden">
+                <div class="status-indicator">
+                    <div class="status-dot active"></div>
+                    <span>Sharing Active</span>
+                </div>
+                <div class="local-preview">
+                    <video id="localVideo" autoplay playsinline muted></video>
+                </div>
+                <p class="sharing-info">Your screen is being shared with the dashboard</p>
+                <button id="stopSharingBtn" class="btn btn-danger">Stop Sharing</button>
+            </div>
+
+            <div id="errorMessage" class="error-message hidden">
+                <p id="errorText"></p>
+                <button id="retryBtn" class="btn btn-secondary">Retry</button>
+            </div>
+
+            <div id="connectionStatus" class="connection-status">
+                <p>Status: <span id="statusText">Connecting...</span></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Pass session_id to JavaScript
+        const SESSION_ID = "{{ session_id }}";
+    </script>
+    <script src="/static/js/mobile.js"></script>
+</body>
+</html>
