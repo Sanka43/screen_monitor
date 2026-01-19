@@ -11,8 +11,14 @@ import uvicorn
 app = FastAPI()
 
 # Mount static files and templates
-app.mount("/static", StaticFiles(directory="static"), name="static")
-templates = Jinja2Templates(directory="templates")
+# Handle paths for both local and Vercel deployment
+import os
+static_dir = os.path.join(os.path.dirname(__file__), "static")
+templates_dir = os.path.join(os.path.dirname(__file__), "templates")
+
+if os.path.exists(static_dir):
+    app.mount("/static", StaticFiles(directory=static_dir), name="static")
+templates = Jinja2Templates(directory=templates_dir)
 
 # In-memory session storage
 sessions: Dict[str, dict] = {}
@@ -61,7 +67,10 @@ async def create_session():
     websocket_connections[session_id] = set()
     
     # Get the base URL (in production, this should be configurable)
-    base_url = "http://localhost:8000"
+    import os
+    base_url = os.environ.get("VERCEL_URL", "http://localhost:8000")
+    if base_url and not base_url.startswith("http"):
+        base_url = f"https://{base_url}"
     mobile_url = f"{base_url}/mobile/{session_id}"
     
     return {
